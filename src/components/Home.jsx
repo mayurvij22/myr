@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Briefcase } from "lucide-react"; // optional if using lucide-react icons
 
 const Home = () => {
   return (
@@ -11,7 +12,7 @@ const Home = () => {
     >
       {/* Profile Picture */}
       <motion.img
-        src="https://media.licdn.com/dms/image/v2/D4D03AQEPpeKHiEjiIg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1727897227905?e=1748476800&v=beta&t=rEUR-P0-CnV1ELdW0brlYMkrcLy99PKnrvBNR-hMY1k"
+        src="https://media.licdn.com/dms/image/v2/D4D03AQFX-lmOjnRL8Q/profile-displayphoto-shrink_400_400/B4DZawat9kHQAw-/0/1746716517336?e=1756944000&v=beta&t=ImDi___nnVAoo21FrRChAaUMxWeWjn8iR017p53aCdw"
         alt="Mayur"
         className="w-48 h-48 md:w-56 md:h-56 rounded-full border-4 border-blue-500 shadow-lg mb-6 transform hover:scale-105 transition duration-500"
         initial={{ scale: 0.8, opacity: 0 }}
@@ -36,10 +37,30 @@ const Home = () => {
         with teams to create impactful digital experiences.
       </p>
 
+      {/* Internship Card */}
+      <motion.div
+        className="mt-8 p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg max-w-xl flex flex-col items-center text-center border border-blue-300 dark:border-blue-600"
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: 0.3 }}
+      >
+        <div className="text-4xl mb-2">🏢</div>
+        <h3 className="text-2xl font-bold text-blue-600 dark:text-blue-400">
+          Internship at Altimetrik India
+        </h3>
+        <p className="mt-2 text-gray-600 dark:text-gray-300 leading-relaxed">
+          Completed a hands-on internship where I worked on modern web
+          technologies, contributed to enterprise-grade solutions, and
+          collaborated with cross-functional agile teams. This experience
+          strengthened my practical skills in building scalable applications.
+        </p>
+      </motion.div>
+
       {/* Call to Action Buttons */}
-      <div className="mt-8 flex flex-col sm:flex-row gap-4">
+      <div className="mt-10 flex flex-col sm:flex-row gap-4">
         <a
-          href="https://drive.google.com/file/d/1-MoiHZ5eIT_dwqMsRFRnIT_SO0B9wPtF/view?usp=drive_link"
+          href="https://drive.google.com/file/d/1daXgtNRyCn7kzPzwUejSMeXXwK_88kOO/view?usp=sharing"
           className="px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transform hover:scale-105 transition duration-300"
         >
           Download Resume
