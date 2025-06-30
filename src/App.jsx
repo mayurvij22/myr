@@ -6,12 +6,14 @@ import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Achievements from "./components/Achievements";
 import About from "./components/About";
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   return (
     <ThemeProvider>
       <div className="bg-white dark:bg-gray-900 min-h-screen">
         <Navbar />
+        <Analytics />
         <Home />
         <About></About>
         <Projects />
