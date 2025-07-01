@@ -71,16 +71,7 @@ const Navbar = () => {
           ))}
         </ul>
 
-        {/* Theme Toggle */}
-        <button
-          className="hidden md:block p-2 rounded transition-all bg-gray-200 dark:bg-gray-800 relative w-12 h-6"
-          onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-        >
-          <motion.div
-            className="w-5 h-5 bg-white dark:bg-black rounded-full absolute top-0.5 transition-all"
-            animate={{ x: theme === "dark" ? 24 : 0 }}
-          />
-        </button>
+      
 
         {/* Mobile Menu Button */}
         <button className="md:hidden p-2" onClick={() => setIsOpen(!isOpen)}>
@@ -114,14 +105,6 @@ const Navbar = () => {
               </ScrollLink>
             </li>
           ))}
-
-          {/* Mobile Theme Toggle */}
-          <button
-            className="p-2 bg-gray-200 dark:bg-gray-800 rounded transition-all mx-auto"
-            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-          >
-            {theme === "light" ? "🌙 Dark Mode" : "☀️ Light Mode"}
-          </button>
         </motion.ul>
       )}
     </motion.nav>

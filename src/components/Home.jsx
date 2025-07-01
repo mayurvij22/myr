@@ -61,13 +61,13 @@ const Home = () => {
       <div className="mt-10 flex flex-col sm:flex-row gap-4">
         <a
           href="https://drive.google.com/file/d/1daXgtNRyCn7kzPzwUejSMeXXwK_88kOO/view?usp=sharing"
-          className="px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transform hover:scale-105 transition duration-300"
+          className="px-8 py-3 bg-cyan-600 hover:bg-cyan-700 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transform hover:scale-105 transition duration-300"
         >
           Download Resume
         </a>
         <a
           href="#contact"
-          className="px-8 py-3 border border-blue-600 text-blue-600 dark:text-white dark:border-white font-semibold rounded-lg shadow-md hover:bg-blue-600 hover:text-white transform hover:scale-105 transition duration-300"
+          className="px-8 py-3 border bg-cyan-600 hover:bg-cyan-700 text-blue-600 dark:text-white dark:border-white font-semibold rounded-lg shadow-md hover:bg-blue-600 hover:text-white transform hover:scale-105 transition duration-300"
         >
           Contact Me
         </a>
