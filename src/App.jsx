@@ -6,6 +6,7 @@ import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Achievements from "./components/Achievements";
 import About from "./components/About";
+import FriendGallery from "./components/FriendGallery"
 import { Analytics } from "@vercel/analytics/react";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Projects />
         <Achievements></Achievements>
         <Contact />
+        <FriendGallery></FriendGallery>
       </div>
     </ThemeProvider>
   );
