@@ -20,7 +20,7 @@ function App() {
         <Projects />
         <Achievements></Achievements>
         <Contact />
-        <FriendGallery></FriendGallery>
+      
       </div>
     </ThemeProvider>
   );
