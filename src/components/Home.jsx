@@ -65,12 +65,12 @@ const Home = () => {
         >
           Download Resume
         </a>
-        <a
+        {/* <a
           href="#contact"
           className="px-8 py-3 border bg-cyan-600 hover:bg-cyan-700 text-blue-600 dark:text-white dark:border-white font-semibold rounded-lg shadow-md hover:bg-blue-600 hover:text-white transform hover:scale-105 transition duration-300"
         >
           Contact Me
-        </a>
+        </a> */}
       </div>
     </motion.section>
   );
