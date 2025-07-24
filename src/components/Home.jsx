@@ -1,78 +1,131 @@
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { Briefcase } from "lucide-react"; // optional if using lucide-react icons
+import * as THREE from "three";
 
 const Home = () => {
+  const vantaRef = useRef(null);
+  const [vantaEffect, setVantaEffect] = useState(null);
+
+  useEffect(() => {
+    let effect;
+    import("vanta/dist/vanta.net.min").then((VANTA) => {
+      if (!vantaEffect && vantaRef.current) {
+        effect = VANTA.default({
+          el: vantaRef.current,
+          THREE,
+          mouseControls: true,
+          touchControls: true,
+          minHeight: 200.0,
+          minWidth: 200.0,
+          scale: 1.0,
+          scaleMobile: 1.0,
+          color: 0x00ffff,
+          backgroundColor: 0x111827,
+        });
+        setVantaEffect(effect);
+      }
+    });
+
+    return () => {
+      if (effect) effect.destroy();
+    };
+  }, [vantaEffect]);
+
   return (
-    <motion.section
+    <section
+      ref={vantaRef}
       id="home"
-      className="flex flex-col items-center justify-center text-center py-32 px-8 bg-gradient-to-b from-blue-100 to-white dark:from-gray-900 dark:to-black min-h-screen"
-      initial={{ opacity: 0, y: -50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1 }}
+      className="relative flex flex-col items-center justify-center text-center py-36 px-8 min-h-screen text-white overflow-hidden"
+      style={{ zIndex: 0 }}
     >
-      {/* Profile Picture */}
-      <motion.img
-        src="https://media.licdn.com/dms/image/v2/D4D03AQHPy-ulakebdQ/profile-displayphoto-scale_400_400/B4DZgn0ZoVGgAg-/0/1753014706992?e=1756339200&v=beta&t=iig7L6KGMEBDa3AwkapWl9u7gQTSJ-O0mcEmLM3WiqU"
-        alt="Mayur"
-        className="w-48 h-48 md:w-56 md:h-56 rounded-full border-4 border-blue-500 shadow-lg mb-6 transform hover:scale-105 transition duration-500"
-        initial={{ scale: 0.8, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 1, delay: 0.5 }}
-      />
+      {/* Overlay content */}
+      <div className="relative z-10 max-w-5xl w-full px-4 sm:px-0">
+        {/* Profile Image */}
+        <motion.img
+          src="https://media.licdn.com/dms/image/v2/D4D03AQHPy-ulakebdQ/profile-displayphoto-scale_400_400/B4DZgn0ZoVGgAg-/0/1753014706992?e=1756339200&v=beta&t=iig7L6KGMEBDa3AwkapWl9u7gQTSJ-O0mcEmLM3WiqU"
+          alt="Mayur"
+          className="w-56 h-56 md:w-72 md:h-72 rounded-full border-8 border-blue-500 shadow-[0_0_25px_5px_rgba(59,130,246,0.6)] mb-8 cursor-pointer hover:shadow-[0_0_40px_10px_rgba(59,130,246,0.8)] transition-shadow duration-700 ease-in-out"
+          initial={{ scale: 0.85, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1.2, delay: 0.4 }}
+        />
 
-      {/* Name & Role */}
-      <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 dark:text-white">
-        Hi, I'm <span className="text-blue-500">Mayur Vijay Patil</span>
-      </h1>
-      <p className="text-lg md:text-2xl text-gray-600 dark:text-gray-300 mt-3 font-medium">
-        Full Stack Developer | MERN | Java | Spring Boot | Problem Solver
-      </p>
-
-      {/* Experience & Skills */}
-      <p className="mt-6 text-gray-500 dark:text-gray-400 max-w-3xl leading-relaxed">
-        Passionate about building scalable and efficient web applications.
-        Experienced in Java, Spring Boot, React, Node.js, MongoDB, and REST
-        APIs. I love solving complex problems, optimizing performance, and
-        continuously learning new technologies. Enthusiastic about collaborating
-        with teams to create impactful digital experiences.
-      </p>
-
-      {/* Internship Card */}
-      <motion.div
-        className="mt-8 p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg max-w-xl flex flex-col items-center text-center border border-blue-300 dark:border-blue-600"
-        initial={{ opacity: 0, scale: 0.9 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, delay: 0.3 }}
-      >
-        <div className="text-4xl mb-2">🏢</div>
-        <h3 className="text-2xl font-bold text-blue-600 dark:text-blue-400">
-          Internship at Altimetrik India
-        </h3>
-        <p className="mt-2 text-gray-600 dark:text-gray-300 leading-relaxed">
-          Completed a hands-on internship where I worked on modern web
-          technologies, contributed to enterprise-grade solutions, and
-          collaborated with cross-functional agile teams. This experience
-          strengthened my practical skills in building scalable applications.
-        </p>
-      </motion.div>
-
-      {/* Call to Action Buttons */}
-      <div className="mt-10 flex flex-col sm:flex-row gap-4">
-        <a
-          href="https://drive.google.com/file/d/1daXgtNRyCn7kzPzwUejSMeXXwK_88kOO/view?usp=sharing"
-          className="px-8 py-3 bg-blue-300 hover:bg-cyan-700 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transform hover:scale-105 transition duration-300"
+        {/* Headline */}
+        <motion.h1
+          className="text-6xl md:text-7xl font-extrabold text-white drop-shadow-lg tracking-wide"
+          initial={{ opacity: 0, y: 20, letterSpacing: "0.05em" }}
+          animate={{ opacity: 1, y: 0, letterSpacing: "0.15em" }}
+          transition={{ duration: 1, delay: 1 }}
         >
-          Download Resume
-        </a>
-        {/* <a
-          href="#contact"
-          className="px-8 py-3 border bg-cyan-600 hover:bg-cyan-700 text-blue-600 dark:text-white dark:border-white font-semibold rounded-lg shadow-md hover:bg-blue-600 hover:text-white transform hover:scale-105 transition duration-300"
+          Hi, I'm{" "}
+          <span className="text-blue-500 drop-shadow-md">
+            Mayur Vijay Patil
+          </span>
+        </motion.h1>
+
+        {/* Subtitle */}
+        <motion.p
+          className="text-xl md:text-3xl text-gray-300 mt-5 font-semibold tracking-wide leading-relaxed max-w-xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 1.6 }}
         >
-          Contact Me
-        </a> */}
+          Full Stack Developer | MERN | Java | Spring Boot | Problem Solver
+        </motion.p>
+
+        {/* Description */}
+        <motion.p
+          className="mt-8 text-gray-300 max-w-3xl mx-auto text-lg md:text-xl leading-relaxed tracking-wide"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2, delay: 2.2 }}
+          style={{ letterSpacing: "0.02em", lineHeight: "1.65" }}
+        >
+          Passionate about building scalable and efficient web applications.
+          Experienced in Java, Spring Boot, React, Node.js, MongoDB, and REST APIs.
+          I love solving complex problems, optimizing performance, and continuously
+          learning new technologies. Enthusiastic about collaborating with teams
+          to create impactful digital experiences.
+        </motion.p>
+
+        {/* Internship card */}
+        <motion.div
+          className="mt-12 p-8 bg-white/15 backdrop-blur-lg rounded-3xl shadow-xl max-w-xl flex flex-col items-center text-center border border-blue-600"
+          initial={{ opacity: 0, scale: 0.85 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 2.8 }}
+        >
+          <div className="text-5xl mb-3">🏢</div>
+          <h3 className="text-3xl font-bold text-blue-400 drop-shadow-md">
+            Internship at Altimetrik India
+          </h3>
+          <p className="mt-3 text-gray-200 leading-relaxed tracking-wide text-lg max-w-md">
+            Completed a hands-on internship where I worked on modern web
+            technologies, contributed to enterprise-grade solutions, and
+            collaborated with cross-functional agile teams. This experience
+            strengthened my practical skills in building scalable applications.
+          </p>
+        </motion.div>
+
+        {/* Download Resume Button */}
+        <motion.div
+          className="mt-14 flex flex-col sm:flex-row justify-center gap-6"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 3.5 }}
+        >
+          <a
+            href="https://drive.google.com/file/d/1daXgtNRyCn7kzPzwUejSMeXXwK_88kOO/view?usp=sharing"
+            className="px-10 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-3xl shadow-lg transform hover:scale-110 transition duration-300"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Download Resume
+          </a>
+        </motion.div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 

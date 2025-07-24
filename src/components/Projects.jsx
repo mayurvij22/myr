@@ -5,84 +5,122 @@ const projects = [
   {
     title: "VoteSphere: Real-Time Polling Platform",
     link: "https://github.com/mayurvij22/ElectraVote-Next-Gen-Digital-Voting-Platform",
-    github:
-      "https://github.com/mayurvij22/ElectraVote-Next-Gen-Digital-Voting-Platform",
+    github: "https://github.com/mayurvij22/ElectraVote-Next-Gen-Digital-Voting-Platform",
     tech: "React, Node.js, MongoDB, Socket.IO, JWT, REST API",
     description:
-      "Developed a real-time polling platform enabling live voting updates using Socket.IO. Implemented JWT-based authentication and RESTful APIs for secure and seamless user interactions.",
+      "Real-time polling platform with live voting via Socket.IO and secure JWT-based auth.",
   },
   {
     title: "HealthNet - Hospital Administration System",
     link: "https://github.com/mayurvij22/HealthNet-Efficient-Hospital-Administration-Systems",
-    github:
-      "https://github.com/mayurvij22/HealthNet-Efficient-Hospital-Administration-Systems",
-    tech: "React, Node.js, Express, MongoDB, JWT, Tailwind CSS, Axios",
+    github: "https://github.com/mayurvij22/HealthNet-Efficient-Hospital-Administration-Systems",
+    tech: "React, Node.js, Express, MongoDB, JWT, Tailwind CSS",
     description:
-      "Designed a hospital management system for patient records and healthcare efficiency. Integrated secure authentication, responsive UI, and an optimized backend with Express and MongoDB.",
+      "Efficient patient record management with secure auth and dynamic admin dashboards.",
   },
   {
-    title: "TaskMaster 360 - Complete Task Workflow Solution",
+    title: "TaskMaster 360 - Task Workflow App",
     link: "https://github.com/mayurvij22/TaskMaster-360-Complete-Task-Workflow-Solution",
-    github:
-      "https://github.com/mayurvij22/TaskMaster-360-Complete-Task-Workflow-Solution",
-    tech: "React, Node.js, Express, MongoDB, Mongoose, Tailwind CSS, Axios",
+    github: "https://github.com/mayurvij22/TaskMaster-360-Complete-Task-Workflow-Solution",
+    tech: "React, Node.js, MongoDB, Tailwind, JWT",
     description:
-      "Built a task management application with CRUD functionality. Features include adding, editing, marking as complete, and deleting tasks. Optional authentication using JWT and bcrypt for secure user sessions.",
+      "Feature-rich task manager with CRUD operations, auth, and productivity tools.",
   },
   {
-    title: "Interactive Image Smoothing and Blurring with Streamlit",
+    title: "Interactive Image Blurring with Streamlit",
     link: "https://github.com/mayurvij22/Interactive-Image-Smoothing-and-Blurring-with-Streamlit",
-    github:
-      "https://github.com/mayurvij22/Interactive-Image-Smoothing-and-Blurring-with-Streamlit",
-    tech: "Python, Streamlit, OpenCV, NumPy, Pillow",
+    github: "https://github.com/mayurvij22/Interactive-Image-Smoothing-and-Blurring-with-Streamlit",
+    tech: "Python, Streamlit, OpenCV, NumPy",
     description:
-      "Developed a web-based image processing tool allowing users to upload and apply various image smoothing techniques interactively. Implemented Gaussian Blur, Median Blur, and Bilateral Filtering with adjustable parameters for real-time processing.",
+      "Interactive app to apply and visualize image blur techniques in real-time.",
+  },
+  {
+    title: "Ruchita AI Bot - Health Assistant",
+    link: "https://ruchita-ai-bot.vercel.app/",
+    github: "https://github.com/mayurvij22/Ruchita-Ai-Bot",
+    tech: "React, Node.js, OpenAI, Hugging Face, MongoDB",
+    description:
+      "AI health chatbot using GPT & NLP for personalized tips and symptom checks.",
+  },
+  {
+    title: "Anvika AI Bot - Personalized Assistant",
+    link: "https://anvika-ai-bot.vercel.app/",
+    github: "https://github.com/mayurvij22/Anvika-AI-BOT",
+    tech: "React, Node.js, OpenAI GPT, MongoDB",
+    description:
+      "Conversational AI chatbot with secure login and smart chat experience.",
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.25 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30, scale: 0.9 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+};
+
 const Projects = () => {
   return (
-    <section className="p-10" id="projects">
-      <h2 className="text-3xl font-semibold text-gray-900 dark:text-white text-center">
-        Projects
-      </h2>
-      <div className="mt-8 grid md:grid-cols-2 gap-6">
+    <section
+      id="projects"
+      className="relative z-10 py-16 px-6 md:px-20 bg-gradient-to-b from-[#0f2027] via-[#203a43] to-[#2c5364] dark:from-black dark:via-[#1a1a1a] dark:to-gray-900 text-white"
+    >
+      <div className="text-center mb-12">
+        <h2 className="text-4xl font-extrabold tracking-tight">✨ Projects</h2>
+        <p className="mt-2 text-lg text-gray-300">
+          A curated collection of apps, platforms, and AI projects.
+        </p>
+      </div>
+
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+      >
         {projects.map((project, index) => (
           <motion.div
             key={index}
-            className="p-6 border rounded-lg bg-gray-100 dark:bg-gray-800 shadow-md hover:shadow-lg transition duration-300"
-            whileHover={{ scale: 1.05 }}
+            variants={itemVariants}
+            whileHover={{ scale: 1.03 }}
+            className="bg-white/5 backdrop-blur-lg border border-white/10 p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300"
           >
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white">
-              {project.title}
-            </h3>
-            <p className="text-gray-500 dark:text-gray-400 mt-2">
-              {project.tech}
-            </p>
-            <p className="text-gray-600 dark:text-gray-300 mt-2">
-              {project.description}
-            </p>
-            <div className="mt-4 flex items-center gap-4">
+            <h3 className="text-xl font-semibold mb-2 text-white">{project.title}</h3>
+            <p className="text-sm text-blue-300 font-medium mb-2">{project.tech}</p>
+            <p className="text-gray-300 text-sm mb-4">{project.description}</p>
+            <div className="flex justify-between items-center">
               <a
                 href={project.link}
-                className="text-blue-500 hover:underline font-semibold"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="text-blue-400 hover:underline"
               >
-                View Project
+                Live Demo
               </a>
               <a
                 href={project.github}
-                className="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="text-white hover:text-blue-400"
               >
                 <FaGithub size={20} />
               </a>
             </div>
           </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 };
