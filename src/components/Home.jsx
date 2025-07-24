@@ -12,7 +12,7 @@ const Home = () => {
     >
       {/* Profile Picture */}
       <motion.img
-        src="https://media.licdn.com/dms/image/v2/D4D03AQFX-lmOjnRL8Q/profile-displayphoto-shrink_400_400/B4DZawat9kHQAw-/0/1746716517336?e=1756944000&v=beta&t=ImDi___nnVAoo21FrRChAaUMxWeWjn8iR017p53aCdw"
+        src="https://media.licdn.com/dms/image/v2/D4D03AQHPy-ulakebdQ/profile-displayphoto-scale_400_400/B4DZgn0ZoVGgAg-/0/1753014706992?e=1756339200&v=beta&t=iig7L6KGMEBDa3AwkapWl9u7gQTSJ-O0mcEmLM3WiqU"
         alt="Mayur"
         className="w-48 h-48 md:w-56 md:h-56 rounded-full border-4 border-blue-500 shadow-lg mb-6 transform hover:scale-105 transition duration-500"
         initial={{ scale: 0.8, opacity: 0 }}
