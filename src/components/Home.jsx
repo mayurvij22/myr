@@ -8,23 +8,28 @@ const Home = () => {
 
   useEffect(() => {
     let effect;
-    import("vanta/dist/vanta.net.min").then((VANTA) => {
-      if (!vantaEffect && vantaRef.current) {
-        effect = VANTA.default({
-          el: vantaRef.current,
-          THREE,
-          mouseControls: true,
-          touchControls: true,
-          minHeight: 200.0,
-          minWidth: 200.0,
-          scale: 1.0,
-          scaleMobile: 1.0,
-          color: 0x00ffff,
-          backgroundColor: 0x111827,
-        });
-        setVantaEffect(effect);
-      }
-    });
+
+    if (typeof window !== "undefined") {
+      // ✅ Required: Make THREE available globally for Vanta.js
+      window.THREE = THREE;
+
+      import("vanta/dist/vanta.net.min").then((VANTA) => {
+        if (!vantaEffect && vantaRef.current) {
+          effect = VANTA.default({
+            el: vantaRef.current,
+            mouseControls: true,
+            touchControls: true,
+            minHeight: 200.0,
+            minWidth: 200.0,
+            scale: 1.0,
+            scaleMobile: 1.0,
+            color: 0x00ffff,
+            backgroundColor: 0x111827,
+          });
+          setVantaEffect(effect);
+        }
+      });
+    }
 
     return () => {
       if (effect) effect.destroy();

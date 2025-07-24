@@ -15,27 +15,33 @@ const About = () => {
 
   useEffect(() => {
     let effect;
-    import("vanta/dist/vanta.waves.min").then((VANTA) => {
-      if (!vantaEffect && vantaRef.current) {
-        effect = VANTA.default({
-          el: vantaRef.current,
-          THREE,
-          color: 0x2563eb,
-          shininess: 50,
-          waveHeight: 15,
-          waveSpeed: 0.6,
-          zoom: 0.8,
-          backgroundColor: 0x111827,
-        });
-        setVantaEffect(effect);
-      }
-    });
+
+    if (typeof window !== "undefined") {
+      window.THREE = THREE; // ✅ Ensure THREE is accessible to Vanta
+
+      import("vanta/dist/vanta.waves.min").then((VANTA) => {
+        if (!vantaEffect && vantaRef.current) {
+          effect = VANTA.default({
+            el: vantaRef.current,
+            THREE: window.THREE,
+            color: 0x2563eb,
+            shininess: 50,
+            waveHeight: 15,
+            waveSpeed: 0.6,
+            zoom: 0.8,
+            backgroundColor: 0x111827,
+          });
+          setVantaEffect(effect);
+        }
+      });
+    }
 
     return () => {
       if (effect) effect.destroy();
     };
   }, [vantaEffect]);
 
+  // ... rest of your component remains the same
   const cards = [
     {
       title: "Experience",
