@@ -1,76 +1,49 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import * as THREE from "three";
 
 const Home = () => {
-  const vantaRef = useRef(null);
-  const [vantaEffect, setVantaEffect] = useState(null);
-
-  useEffect(() => {
-    let effect;
-
-    if (typeof window !== "undefined") {
-      // ✅ Required: Make THREE available globally for Vanta.js
-      window.THREE = THREE;
-
-      import("vanta/dist/vanta.net.min").then((VANTA) => {
-        if (!vantaEffect && vantaRef.current) {
-          effect = VANTA.default({
-            el: vantaRef.current,
-            mouseControls: true,
-            touchControls: true,
-            minHeight: 200.0,
-            minWidth: 200.0,
-            scale: 1.0,
-            scaleMobile: 1.0,
-            color: 0x00ffff,
-            backgroundColor: 0x111827,
-          });
-          setVantaEffect(effect);
-        }
-      });
-    }
-
-    return () => {
-      if (effect) effect.destroy();
-    };
-  }, [vantaEffect]);
-
   return (
     <section
-      ref={vantaRef}
       id="home"
-      className="relative flex flex-col items-center justify-center text-center py-36 px-8 min-h-screen text-white overflow-hidden"
-      style={{ zIndex: 0 }}
+      className="relative flex flex-col items-center justify-center text-center py-36 px-4 min-h-screen text-gray-800 bg-white overflow-hidden"
     >
-      {/* Overlay content */}
-      <div className="relative z-10 max-w-5xl w-full px-4 sm:px-0">
-        {/* Profile Image */}
-        <motion.img
-          src="https://media.licdn.com/dms/image/v2/D4D03AQHPy-ulakebdQ/profile-displayphoto-scale_400_400/B4DZgn0ZoVGgAg-/0/1753014706992?e=1756339200&v=beta&t=iig7L6KGMEBDa3AwkapWl9u7gQTSJ-O0mcEmLM3WiqU"
-          alt="Mayur"
-          className="w-56 h-56 md:w-72 md:h-72 rounded-full border-8 border-blue-500 shadow-[0_0_25px_5px_rgba(59,130,246,0.6)] mb-8 cursor-pointer hover:shadow-[0_0_40px_10px_rgba(59,130,246,0.8)] transition-shadow duration-700 ease-in-out"
+      {/* Soft Glows */}
+      <div className="absolute top-[-100px] left-[-100px] w-96 h-96 bg-gradient-to-tr from-indigo-400 to-purple-300 opacity-40 rounded-full blur-[120px] animate-pulse z-0" />
+      <div className="absolute bottom-[-120px] right-[-120px] w-[500px] h-[500px] bg-gradient-to-br from-pink-300 to-blue-300 opacity-40 rounded-full blur-[140px] animate-pulse z-0" />
+
+      {/* Main content */}
+      <div className="relative z-10 max-w-5xl w-full">
+        {/* Profile Image with Glow Border */}
+        <motion.div
+          className="relative w-52 h-52 md:w-72 md:h-72 mx-auto mb-8 rounded-full overflow-hidden shadow-xl transition duration-700"
           initial={{ scale: 0.85, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1.2, delay: 0.4 }}
-        />
+        >
+          <div className="absolute inset-0 rounded-full border-4 border-transparent bg-gradient-to-tr from-indigo-400 via-purple-400 to-pink-400 animate-spin-slow blur-sm" />
+          <img
+            src="https://media.licdn.com/dms/image/v2/D4D03AQHPy-ulakebdQ/profile-displayphoto-scale_400_400/B4DZgn0ZoVGgAg-/0/1753014706992?e=1756339200&v=beta&t=iig7L6KGMEBDa3AwkapWl9u7gQTSJ-O0mcEmLM3WiqU"
+            alt="Mayur"
+            className="relative z-10 w-full h-full object-cover rounded-full border-[6px] border-white"
+          />
+        </motion.div>
 
-        {/* Headline */}
+        {/* Heading with Gradient Text */}
         <motion.h1
-          className="text-6xl md:text-7xl font-extrabold text-white drop-shadow-lg tracking-wide"
-          initial={{ opacity: 0, y: 20, letterSpacing: "0.05em" }}
-          animate={{ opacity: 1, y: 0, letterSpacing: "0.15em" }}
+          className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1 }}
         >
           Hi, I'm{" "}
-          <span className="text-blue-500 drop-shadow-md">
+          <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
             Mayur Vijay Patil
           </span>
         </motion.h1>
 
         {/* Subtitle */}
         <motion.p
-          className="text-xl md:text-3xl text-gray-300 mt-5 font-semibold tracking-wide leading-relaxed max-w-xl mx-auto"
+          className="text-lg md:text-2xl text-gray-600 mt-5 font-medium tracking-wide max-w-xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.6 }}
@@ -80,53 +53,50 @@ const Home = () => {
 
         {/* Description */}
         <motion.p
-          className="mt-8 text-gray-300 max-w-3xl mx-auto text-lg md:text-xl leading-relaxed tracking-wide"
+          className="mt-8 text-gray-700 max-w-3xl mx-auto text-base md:text-xl leading-loose tracking-wide"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.2, delay: 2.2 }}
-          style={{ letterSpacing: "0.02em", lineHeight: "1.65" }}
         >
           Passionate about building scalable and efficient web applications.
-          Experienced in Java, Spring Boot, React, Node.js, MongoDB, and REST APIs.
-          I love solving complex problems, optimizing performance, and continuously
-          learning new technologies. Enthusiastic about collaborating with teams
-          to create impactful digital experiences.
+          Skilled in Java, Spring Boot, React, Node.js, and MongoDB. I thrive on
+          solving complex problems and creating impactful digital solutions that
+          deliver great user experiences.
         </motion.p>
 
-        {/* Internship card */}
+        {/* Internship Card */}
         <motion.div
-          className="mt-12 p-8 bg-white/15 backdrop-blur-lg rounded-3xl shadow-xl max-w-xl flex flex-col items-center text-center border border-blue-600"
-          initial={{ opacity: 0, scale: 0.85 }}
+          className="mt-12 p-8 bg-white border border-indigo-100 rounded-3xl shadow-xl hover:shadow-indigo-400/40 hover:-translate-y-1 transition duration-500 max-w-xl mx-auto"
+          initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 2.8 }}
         >
-          <div className="text-5xl mb-3">🏢</div>
-          <h3 className="text-3xl font-bold text-blue-400 drop-shadow-md">
+          <div className="text-4xl mb-3">🏢</div>
+          <h3 className="text-2xl font-bold text-indigo-500">
             Internship at Altimetrik India
           </h3>
-          <p className="mt-3 text-gray-200 leading-relaxed tracking-wide text-lg max-w-md">
-            Completed a hands-on internship where I worked on modern web
-            technologies, contributed to enterprise-grade solutions, and
-            collaborated with cross-functional agile teams. This experience
-            strengthened my practical skills in building scalable applications.
+          <p className="mt-3 text-gray-700 text-lg leading-relaxed">
+            Gained hands-on experience working with modern web technologies and
+            agile teams. Contributed to enterprise-grade solutions, enhancing my
+            full-stack development skills and real-world collaboration.
           </p>
         </motion.div>
 
-        {/* Download Resume Button */}
+        {/* Resume Button */}
         <motion.div
-          className="mt-14 flex flex-col sm:flex-row justify-center gap-6"
+          className="mt-14 flex justify-center"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 3.5 }}
         >
           <a
             href="https://drive.google.com/file/d/1daXgtNRyCn7kzPzwUejSMeXXwK_88kOO/view?usp=sharing"
-            className="px-10 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-3xl shadow-lg transform hover:scale-110 transition duration-300"
             target="_blank"
             rel="noopener noreferrer"
+            className="px-10 py-4 bg-indigo-500 hover:bg-indigo-600 text-white text-lg font-semibold rounded-full shadow-lg hover:shadow-indigo-500/50 transform hover:scale-105 transition duration-300"
           >
-            Download Resume
+            📄 Download Resume
           </a>
         </motion.div>
       </div>

@@ -56,12 +56,12 @@ const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.25 },
+    transition: { staggerChildren: 0.2 },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 30, scale: 0.9 },
+  hidden: { opacity: 0, y: 30, scale: 0.95 },
   visible: {
     opacity: 1,
     y: 0,
@@ -74,12 +74,12 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="relative z-10 py-16 px-6 md:px-20 bg-gradient-to-b from-[#0f2027] via-[#203a43] to-[#2c5364] dark:from-black dark:via-[#1a1a1a] dark:to-gray-900 text-white"
+      className="bg-white py-16 px-6 md:px-20 text-gray-800"
     >
       <div className="text-center mb-12">
-        <h2 className="text-4xl font-extrabold tracking-tight">✨ Projects</h2>
-        <p className="mt-2 text-lg text-gray-300">
-          A curated collection of apps, platforms, and AI projects.
+        <h2 className="text-4xl font-bold tracking-tight">🚀 Projects</h2>
+        <p className="mt-2 text-lg text-gray-500">
+          A curated collection of real-world apps, platforms & AI solutions.
         </p>
       </div>
 
@@ -95,17 +95,17 @@ const Projects = () => {
             key={index}
             variants={itemVariants}
             whileHover={{ scale: 1.03 }}
-            className="bg-white/5 backdrop-blur-lg border border-white/10 p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300"
+            className="bg-white/60 backdrop-blur-md border border-gray-200 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300"
           >
-            <h3 className="text-xl font-semibold mb-2 text-white">{project.title}</h3>
-            <p className="text-sm text-blue-300 font-medium mb-2">{project.tech}</p>
-            <p className="text-gray-300 text-sm mb-4">{project.description}</p>
+            <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+            <p className="text-sm text-blue-600 font-medium mb-2">{project.tech}</p>
+            <p className="text-gray-700 text-sm mb-4">{project.description}</p>
             <div className="flex justify-between items-center">
               <a
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-400 hover:underline"
+                className="text-blue-500 font-medium hover:underline"
               >
                 Live Demo
               </a>
@@ -113,7 +113,7 @@ const Projects = () => {
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-blue-400"
+                className="text-gray-700 hover:text-blue-600"
               >
                 <FaGithub size={20} />
               </a>
