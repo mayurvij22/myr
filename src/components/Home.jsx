@@ -8,28 +8,29 @@ const Home = () => {
       className="relative flex flex-col items-center justify-center text-center py-36 px-4 min-h-screen overflow-hidden
                  bg-white text-gray-800 dark:bg-[#0f0f0f] dark:text-gray-100 transition-colors duration-500"
     >
-      {/* Soft Gradient Glows */}
+      {/* 🌈 Animated Gradient Background Glows */}
       <div className="absolute top-[-100px] left-[-100px] w-96 h-96 bg-gradient-to-tr from-indigo-400 to-purple-300 dark:from-indigo-700 dark:to-purple-600 opacity-40 rounded-full blur-[120px] animate-pulse z-0" />
       <div className="absolute bottom-[-120px] right-[-120px] w-[500px] h-[500px] bg-gradient-to-br from-pink-300 to-blue-300 dark:from-pink-600 dark:to-blue-500 opacity-40 rounded-full blur-[140px] animate-pulse z-0" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(99,102,241,0.1),transparent_80%)] pointer-events-none" />
 
-      {/* Main content */}
+      {/* 💫 Main Content */}
       <div className="relative z-10 max-w-5xl w-full">
-        {/* Profile Image with Animated Glow Border */}
+        {/* Profile Image with Glowing Animated Border */}
         <motion.div
-          className="relative w-52 h-52 md:w-72 md:h-72 mx-auto mb-8 rounded-full overflow-hidden shadow-xl"
+          className="relative w-52 h-52 md:w-72 md:h-72 mx-auto mb-8 rounded-full overflow-hidden shadow-[0_0_30px_rgba(99,102,241,0.3)]"
           initial={{ scale: 0.85, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1.2, delay: 0.4 }}
         >
-          <div className="absolute inset-0 rounded-full border-4 border-transparent bg-gradient-to-tr from-indigo-400 via-purple-400 to-pink-400 animate-spin-slow blur-sm" />
+          <div className="absolute inset-0 rounded-full border-[5px] border-transparent bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 animate-spin-slow blur-sm opacity-70" />
           <img
-            src="https://media.licdn.com/dms/image/v2/D4D03AQHPy-ulakebdQ/profile-displayphoto-scale_400_400/B4DZgn0ZoVGgAg-/0/1753014706992?e=1756339200&v=beta&t=iig7L6KGMEBDa3AwkapWl9u7gQTSJ-O0mcEmLM3WiqU"
+            src="src/assets/1753014706900.jpg"
             alt="Mayur"
             className="relative z-10 w-full h-full object-cover rounded-full border-[6px] border-white dark:border-gray-800"
           />
         </motion.div>
 
-        {/* Heading */}
+        {/* 👋 Heading */}
         <motion.h1
           className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight"
           initial={{ opacity: 0, y: 20 }}
@@ -37,7 +38,7 @@ const Home = () => {
           transition={{ duration: 1, delay: 1 }}
         >
           Hi, I'm{" "}
-          <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-gradient-x">
             Mayur Vijay Patil
           </span>
         </motion.h1>
@@ -49,7 +50,7 @@ const Home = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.6 }}
         >
-          Full Stack Developer | MERN | Java | Spring Boot | Problem Solver
+          💻 Full Stack Developer | MERN | Java | Spring Boot | Problem Solver
         </motion.p>
 
         {/* Description */}
@@ -59,13 +60,13 @@ const Home = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 1.2, delay: 2.2 }}
         >
-          Passionate about building scalable and efficient web applications.
-          Skilled in Java, Spring Boot, React, Node.js, and MongoDB. I thrive on
-          solving complex problems and creating impactful digital solutions that
-          deliver great user experiences.
+          Passionate about building scalable, efficient, and creative web
+          applications. Skilled in Java, Spring Boot, React, Node.js, and
+          MongoDB. I love solving real-world problems and crafting impactful
+          digital solutions that blend logic with design.
         </motion.p>
 
-        {/* Internship Card */}
+        {/* 🌟 Internship Card */}
         <motion.div
           className="mt-12 p-8 bg-white dark:bg-[#1b1b1b] border border-indigo-100 dark:border-indigo-800 rounded-3xl shadow-xl hover:shadow-indigo-400/40 hover:-translate-y-1 transition duration-500 max-w-xl mx-auto"
           initial={{ opacity: 0, scale: 0.9 }}
@@ -73,18 +74,19 @@ const Home = () => {
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 2.8 }}
         >
+          <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-pink-500/5 opacity-30" />
           <div className="text-4xl mb-3">🏢</div>
           <h3 className="text-2xl font-bold text-indigo-500">
             Internship at Altimetrik India
           </h3>
           <p className="mt-3 text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
-            Gained hands-on experience working with modern web technologies and
-            agile teams. Contributed to enterprise-grade solutions, enhancing my
-            full-stack development skills and real-world collaboration.
+            Gained hands-on experience with modern web technologies, agile
+            teams, and enterprise-grade solutions — strengthening my end-to-end
+            full-stack development skills.
           </p>
         </motion.div>
 
-        {/* Resume Button */}
+        {/* 🎓 Resume Button */}
         <motion.div
           className="mt-14 flex justify-center"
           initial={{ opacity: 0, y: 10 }}
@@ -92,12 +94,16 @@ const Home = () => {
           transition={{ duration: 1, delay: 3.5 }}
         >
           <a
-            href="https://drive.google.com/file/d/1daXgtNRyCn7kzPzwUejSMeXXwK_88kOO/view?usp=sharing"
+            href="https://drive.google.com/file/d/1tlZ9B-ldUcdQfzIe06uwVwh982GBjaU5/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-10 py-4 bg-indigo-500 hover:bg-indigo-600 text-white text-lg font-semibold rounded-full shadow-lg hover:shadow-indigo-500/50 transform hover:scale-105 transition duration-300"
+            className="group relative inline-flex items-center px-10 py-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500
+                       text-white text-lg font-semibold rounded-full shadow-lg overflow-hidden transition-all duration-300 hover:scale-105"
           >
-            📄 Download Resume
+            <span className="absolute inset-0 bg-gradient-to-r from-pink-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition duration-300" />
+            <span className="relative flex items-center gap-2">
+              📄 Download Resume
+            </span>
           </a>
         </motion.div>
       </div>

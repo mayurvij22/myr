@@ -42,7 +42,8 @@ const About = () => {
       title: "Education",
       content: (
         <>
-          • <strong>B.Tech – Computer Engineering</strong><br />
+          • <strong>B.Tech – Computer Engineering</strong>
+          <br />
           R C Patel Institute of Technology (8.01 CGPA)
           <br />
           • HSC: 84.83% – Pratap College Amalner
@@ -55,13 +56,17 @@ const About = () => {
       title: "Certifications",
       content: (
         <>
-          • Java with DSA & System Design (PW)
+          • Java with DSA & System Design (PW Skills)
           <br />
           • Java for Beginners (Udemy)
           <br />
+          • AWS Cloud Practitioner Essentials – Masterclass ☁️
+          <br />
+          • Python Essentials 1 – Cisco Certified 🐍
+          <br />
           • TCS iON NQT – 71% (Java Track)
           <br />
-          • Python Essentials 1 – Cisco Certified
+          • Web Application Development – R3 Systems India
         </>
       ),
     },
@@ -104,7 +109,51 @@ const About = () => {
           • Copyright registered: IoT Solar Tracking
         </>
       ),
+    },
+    {
+      title: "Milestones & Highlights",
       spanTwo: true,
+      content: (
+        <>
+          <p className="font-semibold text-indigo-600 dark:text-blue-400 mb-2">
+            📜✨ Proud Achievement Unlocked!
+          </p>
+          Officially registered under the <strong>Copyright Act, 1957</strong> 🇮🇳  
+          for the project <em>“IoT-Based Solar Tracking and Monitoring System for Enhanced Energy Harvesting.”</em>  
+          Recognition from the Intellectual Property Office of India marks a significant milestone for our team.
+          <br />
+          <br />
+          👨‍💻 <strong>Project Authors:</strong> Bhushan Patil, Sagar Birhade, Hrushikesh Deshmukh  
+          <br />
+          💡 Guided by: <strong>Dr. Sandip Sonawane</strong>  
+          <br />
+          Proudly representing <strong>R. C. Patel Institute of Technology, Shirpur</strong>.
+          <br />
+          <br />
+          🚀 <strong>Conference:</strong> Presented our research at ICRAES-2K25, Bharati Vidyapeeth Pune.  
+          <br />
+          <br />
+          🌩️ <strong>AWS Cloud Practitioner Essentials:</strong> Gained insights into cloud fundamentals, pricing models, and best practices.
+          <br />
+          <br />
+          🎓 <strong>Started MBA – Dr. D. Y. Patil Vidyapeeth</strong>  
+          Exploring leadership, business management, and strategic decision-making.
+          <br />
+          <br />
+          👨‍💻 <strong>Joined Altimetrik India</strong> as a Product & Platform Engineer Intern – building scalable solutions using Spring Boot & React.
+          <br />
+          <br />
+          🐍 <strong>Python Essentials 1 – Cisco Certified</strong>  
+          Learned core programming, OOP, and algorithmic problem-solving.
+          <br />
+          <br />
+          ☕ <strong>Java with DSA & System Design – PW Skills</strong>  
+          Certificate ID: 16258b9a-3975-4683-aac2-cf59762eb0a1  
+          <br />
+          <br />
+          🌍 Continuing to learn, innovate, and build impactful projects that contribute to a smarter, sustainable future!
+        </>
+      ),
     },
   ];
 
@@ -116,7 +165,6 @@ const About = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, delay: 0.3 }}
     >
-      {/* Optional background blur overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-white/50 to-transparent dark:from-black/40 dark:to-transparent backdrop-blur-md pointer-events-none" />
 
       <div className="relative max-w-6xl mx-auto text-center z-10">
@@ -156,7 +204,7 @@ const About = () => {
           I embrace continuous learning and thrive in collaborative environments. My mission is to create meaningful software solutions with clean code, efficient architecture, and great user experiences.
         </motion.p>
 
-        {/* Info Cards Grid */}
+        {/* Info Cards */}
         <div className="mt-14 grid md:grid-cols-2 gap-8 text-left">
           {cards.map(({ title, content, spanTwo }, i) => (
             <motion.div
@@ -179,7 +227,7 @@ const About = () => {
           ))}
         </div>
 
-        {/* Social Icons */}
+        {/* Social Links */}
         <motion.div
           className="mt-16 flex justify-center gap-10 text-4xl text-gray-600 dark:text-gray-300"
           initial={{ opacity: 0, y: 10 }}
@@ -191,7 +239,6 @@ const About = () => {
             target="_blank"
             rel="noreferrer"
             className="text-blue-600 hover:text-blue-500 hover:scale-110 transition duration-300"
-            aria-label="LinkedIn"
           >
             <FaLinkedin />
           </a>
@@ -200,21 +247,18 @@ const About = () => {
             target="_blank"
             rel="noreferrer"
             className="hover:text-gray-700 dark:hover:text-white hover:scale-110 transition duration-300"
-            aria-label="GitHub"
           >
             <FaGithub />
           </a>
           <a
             href="mailto:mayurvij22@gmail.com"
             className="text-red-500 hover:text-red-400 hover:scale-110 transition duration-300"
-            aria-label="Email"
           >
             <FaEnvelope />
           </a>
           <a
             href="tel:+919423405733"
             className="text-green-500 hover:text-green-400 hover:scale-110 transition duration-300"
-            aria-label="Phone"
           >
             <FaPhone />
           </a>
@@ -223,7 +267,6 @@ const About = () => {
             target="_blank"
             rel="noreferrer"
             className="text-yellow-400 hover:text-yellow-300 hover:scale-110 transition duration-300"
-            aria-label="LeetCode"
           >
             <FaCode />
           </a>

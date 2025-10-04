@@ -3,6 +3,14 @@ import { FaGithub } from "react-icons/fa";
 
 const projects = [
   {
+    title: "MHN Quiz Application",
+    link: "https://github.com/mayurvij22/MHN-QUIZ",
+    github: "https://github.com/mayurvij22/MHN-QUIZ",
+    tech: "React, Node.js, Express, MongoDB, JWT, Tailwind CSS",
+    description:
+      "Interactive quiz platform with user authentication, admin controls, live leaderboard, and voting features.",
+  },
+  {
     title: "VoteSphere: Real-Time Polling Platform",
     link: "https://github.com/mayurvij22/ElectraVote-Next-Gen-Digital-Voting-Platform",
     github: "https://github.com/mayurvij22/ElectraVote-Next-Gen-Digital-Voting-Platform",
