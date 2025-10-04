@@ -24,7 +24,7 @@ const Home = () => {
         >
           <div className="absolute inset-0 rounded-full border-[5px] border-transparent bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 animate-spin-slow blur-sm opacity-70" />
           <img
-            src="src/assets/1753014706900.jpg"
+            src="https://media.licdn.com/dms/image/v2/D4D03AQHPy-ulakebdQ/profile-displayphoto-crop_800_800/B4DZgn0ZoVGgAI-/0/1753014706900?e=1762387200&v=beta&t=0zlO0qo7qJV4iYs8fQ_YEMNLrYFFst1uMEF9-BAadAc"
             alt="Mayur"
             className="relative z-10 w-full h-full object-cover rounded-full border-[6px] border-white dark:border-gray-800"
           />
